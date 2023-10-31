@@ -1,0 +1,963 @@
+/* Обнуление стилей браузера и некоторые общие настройки */
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+a {
+    text-decoration: none;
+}
+ul,
+ol,
+li {
+    list-style: none;
+}
+img {
+    vertical-align: top; /*выравнено по верху изображение, чтобы не было артефактного отступа*/
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: inherit;
+    font-size: inherit;
+} /* Сбросили стиль заголовков - теперь они принимают на себя общий дизайн сайта */
+
+
+html,
+body {
+    margin: 0 auto;
+    height: 100%;
+    width: 100%;
+    font-size:14px ;
+    font-family: Montserrat;
+    
+    
+}
+
+
+.wrapper {
+    display: flex;
+    min-height: 100%;
+    overflow: hidden;
+    flex-direction: column;
+
+}
+/* ----  */
+
+
+
+
+/*Хэдер */
+/*Верхняя часть Хэдера*/
+
+.header_top {
+    padding: 1% 0;
+}
+
+.header_container_top {
+    
+    max-width: 1200px;
+    margin: auto auto;
+    padding: 0 10px;
+
+}
+
+
+.site_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    width: 185px;
+    height: 47px;
+}
+
+.site_header > h5 {
+    font-weight: 400;
+    font-size: 14px;
+    /*line-height: 140%;*/
+    
+    color: #212121;
+    opacity: 0.7;
+    margin-left: 15%;
+    margin-bottom: 0;
+}
+
+.site_header > p {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    color: #212121;
+    opacity: 0.7;
+    margin-left: 7%;
+    margin-bottom: 0;
+    
+    
+}
+
+.site_header > .btn {
+    background: url(../images/tel.png) no-repeat;
+    background-position: 10% 50%;
+    border: 1px solid #FF5900;
+    border-radius: 100px;
+    
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    padding-top:1% ;
+    padding-bottom:1% ;
+    padding-left: 4%;
+    padding-right: 2%;
+    color: #FF5900;
+}
+
+.site_header > .btn:hover {
+    background:  url(../images/tel_white.png) 7% 50% no-repeat #CA4600;
+    border: #CA4600;
+    color: white;
+}
+
+
+
+/*------*/
+
+/*Модальное окно с формой бутстрап, которое появляется при нажатии на кнопку "Заказать звонок" в верхнем хэдере сайта  */
+
+
+.modal-header {
+    margin-bottom: 0;
+}
+
+.headline_response {
+    font-weight: 400;
+    font-size: 17px;
+}
+
+/*-------*/
+
+
+
+
+
+hr {
+    margin: 0;
+    border: none; /* Убираем границу для браузера Firefox */
+    background-color: rgba(128, 128, 129); /* Цвет линии для браузера Firefox и Opera */
+    height: 1px; /* Толщина линии */
+    color: rgba(128, 128, 129);
+    
+}
+
+
+
+
+
+
+/* Нижняя часть Хэдера */
+
+.header_bottom {
+    padding: 1.5% 0;
+}
+
+.header_container_bottom {
+    max-width: 1200px;
+    margin: auto auto;
+    padding: 0 10px;
+
+}
+
+
+
+.TopMenu li {
+    position: relative; /* это для того, чтобы подменю абсолютно пзиционировать относительно li */
+}
+.TopMenu a.parent {
+
+    margin: 0px 20px 0px 0px;
+}
+
+
+.menu_list {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    
+}
+.menu_list > li {  /* здесь знак > , т.к. мы хотим описать свойства списка первого уровня */
+    margin: 0 10px 0 0;
+    
+   
+}
+.menu_list_second_item {
+    padding-left: 20px;
+}
+
+.menu_link {
+    display: block;
+    color:#212121;
+    text-align: center;
+    
+    
+    
+}
+
+
+
+
+
+
+
+
+.sub-menu_list {
+    z-index: 3;
+    
+    min-width: 220%;
+    display: none; /* .sub-menu_list сначала невидим */
+    position: absolute;
+    left: -14%;
+    top: 70%;
+    padding: 28px; /* это для того, чтобы.sub-menu_list видимо на сайте отъехал на нужное расстояние от основного меню, но на самом деле в коде он не отъехал и событие hover не отключается при переходе курсора с главного меню на пункты подменю */ 
+}
+.sub-menu_list > li {
+    background-color: #fff;
+    color: #212121;
+    line-height: 120%;
+    
+    border-top: 1px #dbd7d7 solid;
+    
+    
+}
+
+
+.sub-menu_link {
+    color: black;
+    display: block;
+    padding-top: 4%;
+    padding-bottom: 4%;
+    padding-left: 4%;
+    
+    
+}
+
+.sub-menu_list > li img {
+    display: inline-block;
+    height: 50%;
+    margin-left: 65%;
+}
+
+.arrow { /* тут мы сделали стрелочку с помощью css, но можно просто картинку вставить. Стрелочка нужна для мобильных устройств, где не работает наведение(hover). На мобильном при нажатии на пункт меню будет переход по ссылке, а при нажатии на стрелочку откроется подменю */
+    
+    position: absolute;
+    right: -8%;
+    top: 8px;
+    width: 0;
+    height: 0;
+    border-top: 5px solid rgb(12, 12, 12);
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+    
+}
+
+.arrow.active {
+    
+    transform: rotate(-180deg);/*развернули стрелочку вверх, когда на нее нажали */
+}
+
+body.mouse .menu_list > li:hover .sub-menu_list { /*Когда у body появляется класс mouse(смотри js), то есть когда пользователь взаимодействует с экраном при помощи мышки, тогда  .sub-menu_list становится видим при наведении на ПЕРВЫЙ!!! li .menu_list, т.к. .sub-menu_list находится в первом li в .menu_list (если бы подменю было бы у второго или(и) у третьего li, тогда подменю было бы видно при наведении на эти li из главного меню      А когда класс mouse у body сменится на класс touch, то есть когда устройство, с которого просматривают сайт будет не компьютер, а телефон или планшет, тогда будет другое взаимодействие с меню - пальцем */
+    display: block;
+}
+body.touch .sub-menu_list.open{ /* когда у подменю добавился класс open(смотри js), подменю стало видимым */
+    display: block;
+}
+
+body.touch .arrow { /*показываем стрелочку только на мобильных */
+    display: block;
+}
+
+/*-------/*
+/* ------- */
+
+
+/* адаптируем .wrapper и хэдер */
+
+@media (max-width: 1200px) {
+    .arrow {
+        right: -15%;
+    }
+}
+
+
+
+
+@media (max-width: 992px){
+    
+    .site_header > h5 {
+        margin-left: 1%;
+    }
+    .site_header > p {
+        margin-left: 1%;
+    }
+    .site_header > .btn {
+        background-position: 2% 35%;
+    }
+    
+    .menu_list {
+        justify-content: flex-start;  /*это чтобы поле поиска id="search не пришлось перепозиционировать при изменении размера экрана, чтобы оно всегда было на видном месте и не уезжало за границы экрана */
+    }
+    .menu_link {
+        text-decoration: underline;
+    }
+
+    .arrow {
+        right: -14%;
+    }
+
+    
+    .sub-menu_list {
+        padding-top: 4%;
+    }
+
+    .search {
+       
+        order: 3;
+    }
+    
+    
+}
+
+
+
+
+
+@media (max-width: 768px){
+    .wrapper {
+        padding: 15px; /*сделали красивые отступы экрану */
+    }
+    
+    .site_header {
+        display: flex;
+        flex-direction: column;
+        padding: 2% 0;
+        
+        
+    }
+    
+
+    .site_header > h5 {
+        
+        font-size: 25px;
+        text-align: center;
+        margin-left: 0;
+        
+        }
+    .site_header > p{
+        
+        padding: 1% 0;
+        margin-left: 0;
+        
+    }
+    .site_header > .btn {
+        padding: 2% 0;
+        padding-left: 12%;
+        padding-right: 4%;
+        background: url(../images/tel.png) 7% 50%  no-repeat;
+        
+    }
+    .site_header > * {
+        margin: 4% 0; 
+    }
+    
+
+
+
+
+    
+    .menu_list {
+        display: flex;
+        flex-direction: column; /*пункты основного меню сделали сверху вниз */
+        align-items: center;
+        justify-content: center;
+    }
+    .menu_list > li {
+        margin: 0px 0px 10px 0px; /*здесь пункты меню раздвинули, а убрав отступ справа срелочка встала на нужное место */
+    }
+    .menu_link {
+        text-align: left;
+    }
+
+    .arrow {
+        bottom: 1%;
+    }
+
+    .menu_list_second_item {
+        padding-left: 0px;
+    }
+
+    .sub-menu_list {
+        min-width: 100%;
+        position: relative; /*подменю убрали абсолютное позиционирование */
+        left: 0;
+        top: 0;
+    }
+
+    .sub-menu_list > li img {
+        margin-left: 50%;
+        
+    }
+}
+
+/* ----- */
+
+
+
+
+
+/* В нижнем хэдере иконка и форма  поиска по сайту */
+
+.search_picture {
+    height: 21px;
+}
+
+.block_with_search_field_0 {
+    top: -5%;
+    height: 200%;
+    width: 200%;
+    position: absolute;
+    padding: 40px;
+    z-index: 1;
+    display: none;
+}
+.block_with_search_field_1 {
+    background: rgba(251, 252, 253, 0.557);
+    width: 1200%;
+    height: 80%;
+    position: absolute;
+    top: 54%;
+    right: -451%;
+}
+
+
+#search {
+    outline: none;
+    position: absolute;
+    width: 53%;
+    top: 40%;
+    left: 4%;
+    background: rgba(219, 222, 224, 0.173);
+    border-bottom: solid 2px rgba(99, 98, 96, 0.279);
+    z-index: 1;
+    
+    
+}
+.search:hover  .block_with_search_field_0 {
+    display: block;
+
+}
+
+ 
+
+/* ------ */
+
+
+
+
+
+/* Адаптируем поле поиска, которое находится в index.html в нижней части хэдера */
+
+@media (max-width: 1007px) {
+    .block_with_search_field_1 {
+        width: 900%; 
+        top: 59%;
+        left: 14%;
+    }
+}
+
+@media (max-width: 768px) {
+    .block_with_search_field_1 {
+        width: 300%;
+        height: 63%;
+        left: -136%;
+        top: 45%;
+        
+    }
+
+    #search {
+        width: 60%;
+        bottom: 30%;
+    }
+} 
+
+
+
+
+/*-------*/
+
+
+
+/*Экран "Комплексный интернет маркетинг" */
+
+.integrated_internet_marketing {
+    width: 100%;
+    background-image: linear-gradient(to left, transparent, rgba(78, 77, 76, 0.3)), url("../images/compleksne_internet_marketing.jpg"); /* градиент */
+    opacity: 0.9;
+    height: 100vh; 
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+
+.container_integrated {
+    max-width: 1200px;
+    margin: auto auto;
+    color: #FFFFFF;
+    padding-left: 10px;
+    
+    
+
+}
+
+h1 {
+    font-weight: 700;
+    font-size: 68px;
+    width: 780px;
+    height: 150px;
+    line-height: 110%;
+    
+
+}
+
+.container_integrated p {
+    width: 780px;
+    height: 44px;
+    margin-top: 20px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 140%;
+
+}
+
+
+
+
+
+
+
+
+
+.buttons_integrated {
+    margin-top: 60px;
+}
+
+.buttons_integrated > .inp {
+    border-radius: 100px;
+    color: #FFFFFF;
+    backdrop-filter: blur(2.5px);
+    padding: 20px 40px; 
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    
+    
+    
+}
+
+
+.buttonOrange {
+    background-color: rgb(255, 89, 0, 0.8);
+   
+}
+.buttonOrange:hover {
+    background-color: #CA4600;
+   
+}
+
+
+.buttons_integrated > .buttonTransparent {
+    background-color: rgb(255, 255, 255, 0.3);
+    border: 1px solid #FFFFFF;
+    margin-left: 40px;
+    
+}
+.buttons_integrated > .buttonTransparent:hover {
+    color: rgb(255, 89, 0, 0.8);
+    border: 1px solid rgb(255, 89, 0);
+    background-color: rgb(255, 255, 255, 0)
+    
+}
+
+/* ---------  */
+
+
+
+
+/* Адаптируем "Комплексный интернет-маркетинг" */
+
+@media (max-width: 770px) {
+    .integrated_internet_marketing {
+        min-height: 100%;
+        
+        background-size: cover;
+        
+    }
+
+    .container_integrated {
+        margin: auto 0;
+        padding-left: 0;
+        min-width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .text_integrated {
+        max-width: 100%;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+        
+        
+    }
+
+    h1 {
+        font-weight: 700;
+        font-size: 28px;
+        max-width: 41%;
+        height: 40%;
+        padding-top: 3%;
+        padding-right: 1%;
+        line-height: 110%;
+        text-align: center;
+        
+    }
+
+    .container_integrated p {
+        max-width: 41%;
+        height: 65%;
+        padding-left: 3%;
+        margin-top: 3%;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 140%;
+       /* text-align: center;*/
+        
+        
+        
+    
+    }
+
+    .buttons_integrated {
+        
+        display: flex;
+        flex-direction: column;
+        
+        margin: 3% 0 0 0;
+        
+    }
+    
+    .buttons_integrated > .inp {
+        border-radius: 100px;
+        color: #FFFFFF;
+        backdrop-filter: blur(2.5px);
+        padding: 7px;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 22px;
+        text-align: center;
+       
+        
+        
+    }
+
+    .buttons_integrated > .buttonTransparent {
+        padding-left: 1.3%;
+        padding-right: 1.3%;
+        margin-left: 0;
+        margin-top: 1.5%;
+    }
+    
+    
+}
+
+/* ---- */
+
+
+
+/* Карусель */
+.container_reviews {
+    max-width: 1200px;
+    margin: 120px auto 56px;
+    
+}
+
+.container_reviews h2 {
+
+    font-style: normal;
+    font-weight: 700;
+    font-size: 38px;
+    line-height: 120%;
+    text-align: center;
+}
+
+
+
+
+.carousel-item_block {
+    height: 420px;
+    display: flex;
+    justify-content: center;
+    
+    
+    
+}
+.carousel-item_container {
+    width: 1200px;
+    padding: 0 1%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.carousel-item_cards {
+    height: 100%;
+    width: 30%;
+    background: #F4F4F4;
+                    
+}
+
+.carousel-control-prev-icon {
+    background-image: url(../images/Arrow_Default.png);
+    background-size: cover;
+    margin-right: 31%;
+    height: 55px;
+    width: 55px;
+}
+.carousel-control-next-icon {
+    background-image: url(../images/Arrow_Default.png);
+    background-size: cover;
+    margin-left: 31%;
+    height: 55px;
+    width: 55px;
+    transform: rotate(180deg);
+}
+
+
+
+
+.container_button_reviews {
+    margin: 0 auto;
+    max-width: 1200px;
+    display: flex;
+    justify-content: center;
+}
+
+a.btn_reviews {
+    display: block;
+    border: 1px solid #FF5900;
+    border-radius: 100px;
+    width: 244px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    padding: 6% 9%;
+    margin: 50px auto 120px;
+    color: #FF5900;
+}
+
+a.btn_reviews:hover {
+    
+    background: #CA4600;
+    color: white;
+}
+
+/* ------- */
+
+/* Адаптируем карусель */
+
+@media (max-width: 576px) {
+
+    .carousel-item_container {
+        display: flex;
+        flex-direction: column;
+        
+
+    }
+    .carousel-item_cards {
+        margin-bottom: 0.5%;
+        display: flex;
+        margin: 0.5% auto 0;
+        min-width: 80%;
+    }
+    .carousel-control-prev-icon, .carousel-control-next-icon {
+        height: 35px;
+        width: 35px;
+    }
+}
+
+
+
+/* footer */
+
+
+
+.footer { 
+    width: 100%;
+    height: 5%;
+    margin-top: auto;
+    background: #333333;
+    color: #FFFFFF;
+}
+.footer_container { 
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.footer_top { 
+    padding: 100px 20px 80px 20px;
+    display: flex;
+    justify-content: space-between;
+    
+}
+.footer_top_content {
+    line-height: 1.5;
+    
+    
+}
+.footer_top_content img {
+    display: inline-block;
+    margin-bottom: 4%;
+}
+.footer_top_content h4{
+    margin-bottom: 10%;
+    opacity: 0.5;
+    font-weight: 500;
+    line-height: 140%;
+}
+.footer_top_content > a {
+    display: inline-block;
+    margin-bottom: 0.5%;
+}
+
+.footer_top_content:not(:first-child) {
+    margin-left: 106px;
+    display: flex;
+    flex-direction: column;
+}
+
+.your_region {
+    display: flex;
+    align-items: flex-start;
+    
+}
+.your_region > p:first-child {
+    opacity: 0.5;
+}
+.your_region > p:nth-child(2) {
+    margin-left: 20%;
+    margin-bottom: 0;
+    border-bottom: 1px solid;
+}
+
+
+.inn, .ogrn {
+    opacity: 0.5;
+    margin-bottom: 2%;
+}
+.ogrn {
+    margin-bottom: 15%;  
+}
+
+.Telegram {
+    display: inline-block;
+    margin-left: 5%;
+}
+
+
+
+/* адаптируем .footer_top и .footer_bottom*/
+
+@media (max-width: 992px) {
+    .footer_top {
+        flex-direction: column;
+    }
+    .footer_container {
+        text-align: center;
+    }
+    .footer_top_content:not(:first-child) {
+        margin-left: 0;
+    }
+    .footer_top_content:not(:nth-child(4)) {
+        margin-bottom: 10%;
+    }
+    .footer_top_content > h4 {
+        margin-bottom: 3%;
+    }
+    
+    .your_region {
+        justify-content: center;
+    }
+
+    .footer_bottom > p, .footer_bottom_right {
+        padding: 0 1.5%;
+    }
+    .footer_bottom .footer_bottom_right {
+        margin-right: 0;
+    }
+}
+
+
+
+
+
+
+
+.footer_bottom {
+  opacity: 0.3;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 120%;  
+  display: flex;
+  justify-content: space-between; 
+  align-items: flex-end;
+  margin-top: 20px; 
+ }
+ .footer_bottom p {
+    margin-bottom: 0;
+ }
+ .footer_bottom div {
+    margin-right: 10%;
+ }
+
+/* ----- */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
